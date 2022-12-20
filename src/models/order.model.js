@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const { toJSON, paginate } = require('./plugins');
 
-
 const orderSchema = mongoose.Schema(
   {
     createdBy: {
@@ -19,25 +18,25 @@ const orderSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
-    transaitionId: {
+    transactionId: {
       type: Number,
       required: true,
       trim: true,
     },
     orderEmail: {
-        type: String,
-        trim: true,
-      },
-      country: {
-        type: Object,
-        required: true,
-        trim: true,
-      },
-      paidBy: {
-        type: String,
-        trim: true,
-        required: true,
-      },
+      type: String,
+      trim: true,
+    },
+    country: {
+      type: Object,
+      required: true,
+      trim: true,
+    },
+    paidBy: {
+      type: String,
+      trim: true,
+      required: true,
+    },
   },
   {
     timestamps: true,
@@ -47,8 +46,6 @@ const orderSchema = mongoose.Schema(
 // add plugin that converts mongoose to json
 orderSchema.plugin(toJSON);
 orderSchema.plugin(paginate);
-
-
 
 orderSchema.pre('save', async function (next) {
   const user = this;

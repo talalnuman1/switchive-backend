@@ -4,10 +4,10 @@ const { objectId } = require('./custom.validation');
 const createOrder = {
   body: Joi.object().keys({
     amount: Joi.number().required(),
-    paidBy: Joi.string().valid('coinrem','depay'),
+    paidBy: Joi.string().valid('coinrem', 'depay'),
     products: Joi.array().required(),
     createdBy: Joi.string(),
-    transaitionId: Joi.number().required(),
+    transactionId: Joi.number().required(),
     orderEmail: Joi.string(),
     country: Joi.object().required(),
   }),
@@ -16,7 +16,6 @@ const createOrder = {
 const getOrders = {
   query: Joi.object().keys({
     createdBy: Joi.string(),
-
   }),
 };
 

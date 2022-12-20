@@ -2,11 +2,31 @@ const httpStatus = require('http-status');
 const pick = require('../utils/pick');
 const ApiError = require('../utils/ApiError');
 const catchAsync = require('../utils/catchAsync');
-const { orderService } = require('../services');
+const { orderService, userService } = require('../services');
 
 const createOrder = catchAsync(async (req, res) => {
   const order = await orderService.createOrder(req.body);
-  res.status(httpStatus.CREATED).send(order);
+  const amount = parseFloat(req.body.amount);
+  const cashBack = (0.5 / 100) * amount;
+  const shp = cashBack / 0.01;
+  const user = await userService.getUserById(req.user.id);
+
+  if (user.referredBy) {
+    const parentUser = await userService.getUserById(user.referredBy);
+    const limit = 500;
+    if (user.loyaltyPoints / 2 <= 500) {
+      const maxPoints = limit - user.loyaltyPoints / 2;
+      if (shp / 2 > maxPoints) {
+        parentUser.referralPoints += maxPoints;
+      } else {
+        parentUser.referralPoints += shp / 2;
+      }
+    }
+    await parentUser.save();
+  }
+  user.loyaltyPoints += shp;
+  await user.save();
+  res.status(httpStatus.CREATED).send({ order, user: req.user });
 });
 
 const getOrders = catchAsync(async (req, res) => {
