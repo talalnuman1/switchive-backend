@@ -3,6 +3,7 @@ const authRoute = require('./auth.route');
 const userRoute = require('./user.route');
 const cartRoute = require('./cart.route');
 const orderRoute = require('./order.route');
+const switchiveGiftCardRoute = require('./switchiveGiftCard.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
 
@@ -25,7 +26,10 @@ const defaultRoutes = [
     path: '/order',
     route: orderRoute,
   },
-  
+  {
+    path: '/cards',
+    route: switchiveGiftCardRoute,
+  },
 ];
 
 const devRoutes = [
