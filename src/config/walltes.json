@@ -1,0 +1,37 @@
+[
+    {
+        "label": "Bitcoin",
+        "value": "BTC",
+        "key": "$2y$10$pbFLqdcGpYpLu4DVAFnM5.T28rvaxTBX/k3bN3Y3zel2UoX1MThJK"
+    },
+    {
+        "label": "Litecoin",
+        "value": "LTC",
+        "key": "$2y$10$XOYsr4wjpqlRjEb8Ta7oSOKyYIuXAqLRF.1lJbhRvDRSbKeaiJDBu"
+    },
+    {
+        "label": "Bitcoin Cash",
+        "value": "BCH",
+        "key": "$2y$10$Qf9/e6jT0o4xDn9AjUGP6ujW5yIzHlz2Ac2i8FIEQ2LX0CxAMdGhe"
+    },
+    {
+        "label": "Dogecoin",
+        "value": "DOGE",
+        "key": "$2y$10$MloGG8qHjltGBroOTIThiekJ97MnOeotbQ8Sk/DcAFXGR1WkcnfSG"
+    },
+    {
+        "label": "Dash",
+        "value": "DASH",
+        "key": "$2y$10$viSZAsvU7ndI0I7GfzS5Je8EwnnLxbVHY/sntr90oVkNjhayE.y9q"
+    },
+    {
+        "label": "Binance Coin",
+        "value": "BNB",
+        "key": "$2y$10$UnJvcl6T7zPUaccF6q2c8O0or2DuI1KOLjg/5yDvOfqPp3Feytpcm"
+    },
+    {
+        "label": "Test Coin",
+        "value": "TCN",
+        "key": "$2y$10$U42/nEps2KKipIwcG.bNWedYI53kOtEu557EkQ0Mb/brQf1S.Xxuq"
+    }
+]
