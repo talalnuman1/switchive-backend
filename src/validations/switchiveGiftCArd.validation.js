@@ -5,9 +5,9 @@ const createSwitchiveGiftCard = {
   body: Joi.object().keys({
     name: Joi.string().required(),
     currency: Joi.string().valid('USD', 'EURO', 'GBP').required(),
-    maxAmmount: Joi.number().required(),
+    maxAmount: Joi.number().required(),
     minAmount: Joi.number().required(),
-    avatar: Joi.array().required(),
+    avatar: Joi.string().required(),
   }),
 };
 
@@ -31,9 +31,9 @@ const updateSwitchiveGiftCard = {
     .keys({
       name: Joi.string(),
       currency: Joi.string().valid('USD', 'EURO', 'GBP'),
-      maxAmmount: Joi.number(),
+      maxAmount: Joi.number(),
       minAmount: Joi.number(),
-      avatar: Joi.array(),
+      avatar: Joi.string(),
     })
     .min(1),
 };
