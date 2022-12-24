@@ -14,7 +14,7 @@ const switchiveGiftCArdSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
-    maxAmmount: {
+    maxAmount: {
       type: Number,
       required: true,
       trim: true,
@@ -25,7 +25,7 @@ const switchiveGiftCArdSchema = mongoose.Schema(
       trim: true,
     },
     avatar: {
-      type: Array,
+      type: String,
       required: true,
       trim: true,
     },
