@@ -40,6 +40,10 @@ const userSchema = mongoose.Schema(
       // required: true,
       trim: true,
     },
+    balance: {
+      type: Number,
+      default: 0,
+    },
     referredBy: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'User',

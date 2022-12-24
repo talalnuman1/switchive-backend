@@ -4,7 +4,7 @@ const { objectId } = require('./custom.validation');
 const createOrder = {
   body: Joi.object().keys({
     amount: Joi.number().required(),
-    paidBy: Joi.string().valid('coinrem', 'depay'),
+    paidBy: Joi.string().valid('coinremitter', 'depay', 'balance'),
     products: Joi.array().required(),
     createdBy: Joi.string(),
     transactionId: Joi.number().required(),

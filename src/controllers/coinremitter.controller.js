@@ -1,37 +1,41 @@
 const axios = require('axios');
 const catchAsync = require('../utils/catchAsync');
-var wallets = require('../config/walltes.json');
+const wallets = require('../config/walltes.json');
 
-let getCoins = async () => {
+const getCoins = async () => {
   const response = await axios.get('https://coinremitter.com/api/v3/get-coin-rate', {
     headers: { 'Accept-Encoding': 'gzip,deflate,compress' },
   });
   return response;
 };
 
-let createInvoiceFromCoinremmiter = async (data) => {
-  const foundcoin = wallets.filter((wallets) => wallets.value === data.coin);
+const createInvoiceFromCoinremmiter = async (data) => {
+  const foundcoin = wallets.filter((wallet) => wallet.value === data.coin);
 
   const response = await axios.post(`https://coinremitter.com/api/v3/${data.coin}/create-invoice`, {
     api_key: foundcoin[0].key,
     password: '12345678n',
     amount: data.amount,
     expire_time: data.expire_time,
-    suceess_url: data.suceess_url,
+    success_url: data.success_url,
     fail_url: data.fail_url,
   });
 
   return response;
 };
 
-let getInvoiceFromCoinremmiter = async (data) => {
-  const foundcoin = wallets.filter((wallets) => wallets.value === data.coin);
+const getInvoiceFromCoinremmiter = async (data) => {
+  const foundcoin = wallets.filter((wallet) => wallet.value === data.coin);
 
-  const response = await axios.post(`https://coinremitter.com/api/v3/${data.coin}/get-invoice`, {
-    api_key: foundcoin[0].key,
-    password: '12345678n',
-    invoice_id: data.invoice_id,
-  });
+  const response = await axios.post(
+    `https://coinremitter.com/api/v3/${data.coin}/get-invoice`,
+    {
+      api_key: foundcoin[0].key,
+      password: '12345678n',
+      invoice_id: data.invoice_id,
+    },
+    { headers: { 'Accept-Encoding': 'gzip,deflate,compress' } }
+  );
 
   return response;
 };

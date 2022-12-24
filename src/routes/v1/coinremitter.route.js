@@ -9,6 +9,6 @@ router.route('/').get(validate(coinremitterValidation.getCoinsRates), coinremitt
 
 router.route('/createinvoice').post(validate(coinremitterValidation.createInvoice), coinremitterController.createInvoice);
 
-router.route('/getinvoice').get(validate(coinremitterValidation.getInvoice), coinremitterController.getInvoice);
+router.route('/getinvoice').post(validate(coinremitterValidation.getInvoice), coinremitterController.getInvoice);
 
 module.exports = router;
