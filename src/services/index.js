@@ -5,3 +5,4 @@ module.exports.userService = require('./user.service');
 module.exports.cartService = require('./cart.services');
 module.exports.orderService = require('./order.services');
 module.exports.switchiveGiftCardService = require('./switchiveGiftCard.services');
+module.exports.formulaService = require('./formula.service');

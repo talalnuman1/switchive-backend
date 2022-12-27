@@ -2,24 +2,28 @@ const httpStatus = require('http-status');
 const pick = require('../utils/pick');
 const ApiError = require('../utils/ApiError');
 const catchAsync = require('../utils/catchAsync');
-const { orderService, userService } = require('../services');
+const { orderService, userService, formulaService } = require('../services');
 
 const createOrder = catchAsync(async (req, res) => {
+  const loyaltyPoints = await formulaService.getFormulaByKey('loyaltyPoints');
+  const shpToUsd = await formulaService.getFormulaByKey('shp');
+  const referralPoints = await formulaService.getFormulaByKey('referralPoints');
+  const referralLimit = await formulaService.getFormulaByKey('referralLimit');
+
   const order = await orderService.createOrder(req.body);
   const amount = parseFloat(req.body.amount);
-  const cashBack = (0.5 / 100) * amount;
-  const shp = cashBack / 0.01;
+  const cashBack = (loyaltyPoints.value / 100) * amount;
+  const shp = cashBack / shpToUsd.value;
   const user = await userService.getUserById(req.user.id);
-
   if (user.referredBy) {
     const parentUser = await userService.getUserById(user.referredBy);
-    const limit = 500;
+    const limit = referralLimit.value;
     if (user.loyaltyPoints / 2 <= 500) {
       const maxPoints = limit - user.loyaltyPoints / 2;
       if (shp / 2 > maxPoints) {
         parentUser.referralPoints += maxPoints;
       } else {
-        parentUser.referralPoints += shp / 2;
+        parentUser.referralPoints += (referralPoints.value / 100) * shp;
       }
     }
     await parentUser.save();
