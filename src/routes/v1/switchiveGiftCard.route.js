@@ -14,7 +14,7 @@ router
     switchiveGiftCardController.createSwitchiveGiftCard
   )
   .get(
-    auth('switchiveGiftCard'),
+    auth('getswitchiveGiftCard'),
     validate(switchiveGiftCardValidation.getSwitchiveGiftCards),
     switchiveGiftCardController.getSwitchiveGiftCards
   );
