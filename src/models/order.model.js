@@ -19,7 +19,7 @@ const orderSchema = mongoose.Schema(
       trim: true,
     },
     transactionId: {
-      type: Number,
+      type: String,
       required: true,
       trim: true,
     },
