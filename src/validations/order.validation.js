@@ -7,7 +7,7 @@ const createOrder = {
     paidBy: Joi.string().valid('coinremitter', 'depay', 'balance'),
     products: Joi.array().required(),
     createdBy: Joi.string(),
-    transactionId: Joi.number().required(),
+    transactionId: Joi.string().required(),
     orderEmail: Joi.string(),
     country: Joi.object().required(),
   }),
