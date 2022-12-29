@@ -14,7 +14,6 @@ router
 router
   .route('/:wishListId')
   .get(auth('wishList'), validate(wishListValidation.getWishList), wishListController.getWishList)
-  .patch(auth('wishList'), validate(wishListValidation.updateWishList), wishListController.updateWishList)
   .delete(auth('wishList'), validate(wishListValidation.deleteWishList), wishListController.deleteWishList);
 
 module.exports = router;

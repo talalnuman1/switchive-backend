@@ -35,21 +35,6 @@ const getWishListById = async (id) => {
 };
 
 /**
- * Update WishList by id
- * @param {ObjectId} wishListId
- * @param {Object} updateBody
- * @returns {Promise<WishList>}
- */
-const updateWishListById = async (wishListId, updateBody) => {
-  const WishListToUpdate = await getWishListById(wishListId);
-  if (!WishListToUpdate) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'WishList not found');
-  }
-  Object.assign(WishListToUpdate, updateBody);
-  await WishListToUpdate.save();
-  return WishListToUpdate;
-};
-/**
  * Delete order by id
  * @param {ObjectId} wishListId
  * @returns {Promise<WishList>}
@@ -67,6 +52,5 @@ module.exports = {
   createWishList,
   queryWishList,
   getWishListById,
-  updateWishListById,
   deleteWishListById,
 };

@@ -14,7 +14,6 @@ router
 router
   .route('/:formulaId')
   .get(auth('formula'), validate(formulaValidation.getFormula), formulaController.getFormula)
-  .patch(auth('formula'), validate(formulaValidation.updateFormula), formulaController.updateFormula)
-  .delete(auth('formula'), validate(formulaValidation.deleteFormula), formulaController.deleteFormula);
+  .patch(auth('formula'), validate(formulaValidation.updateFormula), formulaController.updateFormula);
 
 module.exports = router;
