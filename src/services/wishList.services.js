@@ -41,36 +41,26 @@ const getWishListById = async (id) => {
  * @returns {Promise<WishList>}
  */
 const updateWishListById = async (wishListId, updateBody) => {
-  // const WishList = await getWishListById(wishListId);
-  if (!WishList) {
+  const WishListToUpdate = await getWishListById(wishListId);
+  if (!WishListToUpdate) {
     throw new ApiError(httpStatus.NOT_FOUND, 'WishList not found');
   }
-  Object.assign(WishList, updateBody);
-  await WishList.save();
-  return WishList;
+  Object.assign(WishListToUpdate, updateBody);
+  await WishListToUpdate.save();
+  return WishListToUpdate;
 };
-
-// /**
-//  * Delete WishList by id
-//  * @param {ObjectId} wishListId
-//  * @returns {Promise<WishList>}
-//  */
-// const deleteWishListById = async (wishListId) => {
-//   await WishList.remove();
-//   return WishList;
-// };
 /**
  * Delete order by id
  * @param {ObjectId} wishListId
  * @returns {Promise<WishList>}
  */
-const deleteWishListByIds = async () => {
-  // const WishList = await getFormulaById(wishListId);
-  if (!WishList) {
+const deleteWishListById = async (wishListId) => {
+  const WishListToDelete = await getWishListById(wishListId);
+  if (!WishListToDelete) {
     throw new ApiError(httpStatus.NOT_FOUND, 'WishList not found');
   }
-  await WishList.remove();
-  return WishList;
+  await WishListToDelete.remove();
+  return WishListToDelete;
 };
 
 module.exports = {
@@ -78,6 +68,5 @@ module.exports = {
   queryWishList,
   getWishListById,
   updateWishListById,
-  // deleteWishListById,
-  deleteWishListByIds,
+  deleteWishListById,
 };
