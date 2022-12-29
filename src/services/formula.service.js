@@ -61,25 +61,10 @@ const updateFormulaById = async (formulaId, updateBody) => {
   return formula;
 };
 
-/**
- * Delete order by id
- * @param {ObjectId} orderId
- * @returns {Promise<Order>}
- */
-const deleteFormulaById = async (formulaId) => {
-  const formula = await getFormulaById(formulaId);
-  if (!formula) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'order not found');
-  }
-  await formula.remove();
-  return formula;
-};
-
 module.exports = {
   createFormula,
   queryFormula,
   getFormulaById,
   getFormulaByKey,
   updateFormulaById,
-  deleteFormulaById,
 };
