@@ -42,7 +42,7 @@ const defaultRoutes = [
     route: formula,
   },
   {
-    path: '/wishList',
+    path: '/wishlist',
     route: wishList,
   },
 ];
