@@ -1,0 +1,83 @@
+const httpStatus = require('http-status');
+const { WishList } = require('../models');
+const ApiError = require('../utils/ApiError');
+
+/**
+ * Create a WishList
+ * @param {Object} WishListBody
+ * @returns {Promise<WishList>}
+ */
+const createWishList = async (WishListBody) => {
+  return WishList.create(WishListBody);
+};
+
+/**
+ * Query for WishList
+ * @param {Object} filter - Mongo filter
+ * @param {Object} options - Query options
+ * @param {string} [options.sortBy] - Sort option in the format: sortField:(desc|asc)
+ * @param {number} [options.limit] - Maximum number of results per page (default = 10)
+ * @param {number} [options.page] - Current page (default = 1)
+ * @returns {Promise<QueryResult>}
+ */
+const queryWishList = async (filter, options) => {
+  const wishList = await WishList.paginate(filter, options);
+  return wishList;
+};
+
+/**
+ * Get WishList by id
+ * @param {ObjectId} id
+ * @returns {Promise<WishList>}
+ */
+const getWishListById = async (id) => {
+  return WishList.findById(id);
+};
+
+/**
+ * Update WishList by id
+ * @param {ObjectId} wishListId
+ * @param {Object} updateBody
+ * @returns {Promise<WishList>}
+ */
+const updateWishListById = async (wishListId, updateBody) => {
+  // const WishList = await getWishListById(wishListId);
+  if (!WishList) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'WishList not found');
+  }
+  Object.assign(WishList, updateBody);
+  await WishList.save();
+  return WishList;
+};
+
+// /**
+//  * Delete WishList by id
+//  * @param {ObjectId} wishListId
+//  * @returns {Promise<WishList>}
+//  */
+// const deleteWishListById = async (wishListId) => {
+//   await WishList.remove();
+//   return WishList;
+// };
+/**
+ * Delete order by id
+ * @param {ObjectId} wishListId
+ * @returns {Promise<WishList>}
+ */
+const deleteWishListByIds = async () => {
+  // const WishList = await getFormulaById(wishListId);
+  if (!WishList) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'WishList not found');
+  }
+  await WishList.remove();
+  return WishList;
+};
+
+module.exports = {
+  createWishList,
+  queryWishList,
+  getWishListById,
+  updateWishListById,
+  // deleteWishListById,
+  deleteWishListByIds,
+};
