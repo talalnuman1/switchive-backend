@@ -22,7 +22,7 @@ router
 router
   .route('/:switchiveGiftCardId')
   .get(
-    auth('switchiveGiftCard'),
+    auth('getswitchiveGiftCard'),
     validate(switchiveGiftCardValidation.getSwitchiveGiftCard),
     switchiveGiftCardController.getSwitchiveGiftCard
   )
