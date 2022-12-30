@@ -33,16 +33,19 @@ const queryWishList = async (filter, options) => {
 const getWishListById = async (id) => {
   return WishList.findById(id);
 };
-
+const getWishListByProductId = async (productId) => {
+  return WishList.findOne({ productId });
+};
 /**
  * Delete order by id
  * @param {ObjectId} wishListId
  * @returns {Promise<WishList>}
  */
 const deleteWishListById = async (wishListId) => {
-  const WishListToDelete = await getWishListById(wishListId);
+  // const WishListToDelete = await getWishListById(wishListId);
+  const WishListToDelete = await getWishListByProductId(wishListId);
   if (!WishListToDelete) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'WishList not found');
+    throw new ApiError(httpStatus.NOT_FOUND, 'Wishlist not found');
   }
   await WishListToDelete.remove();
   return WishListToDelete;

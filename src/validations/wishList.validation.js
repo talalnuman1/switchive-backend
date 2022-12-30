@@ -4,7 +4,13 @@ const { objectId } = require('./custom.validation');
 const createWishList = {
   body: Joi.object().keys({
     createdBy: Joi.string().required(),
-    product: Joi.object().required(),
+    productId: Joi.string().required(),
+    name: Joi.string().required(),
+    image: Joi.string().required(),
+    minAmount: Joi.number().required(),
+    maxAmount: Joi.number().required(),
+    currency: Joi.string(),
+    type: Joi.string().required(),
   }),
 };
 
@@ -21,7 +27,7 @@ const getWishList = {
 };
 
 const deleteWishList = {
-  params: Joi.object().keys({ wishListId: Joi.required().custom(objectId) }),
+  params: Joi.object().keys({ wishListId: Joi.required() }),
 };
 
 module.exports = {
