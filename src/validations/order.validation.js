@@ -16,6 +16,8 @@ const createOrder = {
 const getOrders = {
   query: Joi.object().keys({
     createdBy: Joi.string(),
+    limit: Joi.number().integer(),
+    page: Joi.number().integer(),
   }),
 };
 
