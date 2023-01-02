@@ -29,14 +29,9 @@ const updateFormula = {
   }),
 };
 
-const deleteFormula = {
-  params: Joi.object().keys({ formulaId: Joi.required().custom(objectId) }),
-};
-
 module.exports = {
   createFormula,
   getFormulas,
   getFormula,
   updateFormula,
-  deleteFormula,
 };

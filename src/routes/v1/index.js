@@ -6,6 +6,7 @@ const orderRoute = require('./order.route');
 const switchiveGiftCardRoute = require('./switchiveGiftCard.route');
 const coinremitterRoute = require('./coinremitter.route');
 const formula = require('./formula.route');
+const blog = require('./blog.route');
 const wishList = require('./wishLIst.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
@@ -44,6 +45,10 @@ const defaultRoutes = [
   {
     path: '/wishlist',
     route: wishList,
+  },
+  {
+    path: '/blog',
+    route: blog,
   },
 ];
 

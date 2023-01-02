@@ -5,3 +5,4 @@ module.exports.orderValidation = require('./order.validation');
 module.exports.switchiveGiftCardValidation = require('./switchiveGiftCArd.validation');
 module.exports.coinremitterValidation = require('./coinremitter.validation');
 module.exports.ishListValidation = require('./wishList.validation');
+module.exports.blogValidation = require('./blog.validation');

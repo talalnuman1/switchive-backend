@@ -5,3 +5,4 @@ module.exports.orderController = require('./order.controller');
 module.exports.switchiveGiftCardController = require('./switchiveGiftCard.controller');
 module.exports.coinremitterController = require('./coinremitter.controller');
 module.exports.wishListController = require('./wishList.controller');
+module.exports.blogController = require('./blog.controller');

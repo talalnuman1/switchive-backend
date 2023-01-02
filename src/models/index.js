@@ -5,3 +5,4 @@ module.exports.Order = require('./order.model');
 module.exports.switchiveGiftCard = require('./switchiveGiftCards.model');
 module.exports.Formula = require('./formula.model');
 module.exports.WishList = require('./wishlist.model');
+module.exports.Blog = require('./blog.model');

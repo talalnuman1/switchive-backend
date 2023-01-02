@@ -24,11 +24,6 @@ const getWishList = catchAsync(async (req, res) => {
   res.send(wishlist);
 });
 
-const updateWishList = catchAsync(async (req, res) => {
-  const wishlist = await wishListService.updateWishListById(req.params.wishListId, req.body);
-  res.send(wishlist);
-});
-
 const deleteWishList = catchAsync(async (req, res) => {
   await wishListService.deleteWishListById(req.params.wishListId);
   res.status(httpStatus.NO_CONTENT).send();
@@ -38,6 +33,5 @@ module.exports = {
   createWishList,
   getWishLists,
   getWishList,
-  updateWishList,
   deleteWishList,
 };
