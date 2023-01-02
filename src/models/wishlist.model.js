@@ -13,6 +13,31 @@ const wishListSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
+    minAmount: {
+      type: Number,
+      required: true,
+    },
+    maxAmount: {
+      type: Number,
+      required: true,
+    },
+    currency: {
+      type: String,
+      trim: true,
+    },
+    type: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    image: {
+      type: String,
+      trim: true,
+    },
   },
   {
     timestamps: true,
