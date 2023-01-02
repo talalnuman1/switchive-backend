@@ -8,8 +8,8 @@ const wishListSchema = mongoose.Schema(
       ref: 'User',
       required: true,
     },
-    productId: {
-      type: String,
+    product: {
+      type: Object,
       required: true,
       trim: true,
     },

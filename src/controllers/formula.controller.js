@@ -29,15 +29,9 @@ const updateFormula = catchAsync(async (req, res) => {
   res.send(order);
 });
 
-const deleteFormula = catchAsync(async (req, res) => {
-  await formulaService.deleteFormulaById(req.params.formulaId);
-  res.status(httpStatus.NO_CONTENT).send();
-});
-
 module.exports = {
   createFormula,
   getFormulas,
   getFormula,
   updateFormula,
-  deleteFormula,
 };
