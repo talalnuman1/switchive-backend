@@ -10,6 +10,7 @@ const allRoles = {
     'getswitchiveGiftCard',
     'Blog',
     'getBlog',
+    'wishList',
   ],
 };
 
