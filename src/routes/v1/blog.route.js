@@ -9,11 +9,11 @@ const router = express.Router();
 router
   .route('/')
   .post(auth('Blog'), validate(blogValidation.createBlog), blogController.createBlog)
-  .get(auth('getBlog'), validate(blogValidation.getBlogs), blogController.getBlogs);
+  .get(validate(blogValidation.getBlogs), blogController.getBlogs);
 
 router
   .route('/:blogId')
-  .get(auth('getBlog'), validate(blogValidation.getBlog), blogController.getBlog)
+  .get(validate(blogValidation.getBlog), blogController.getBlog)
   .patch(auth('Blog'), validate(blogValidation.updateBlog), blogController.updateBlog)
   .delete(auth('Blog'), validate(blogValidation.deleteBlog), blogController.deleteBlog);
 
