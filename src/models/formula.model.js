@@ -11,6 +11,10 @@ const FormulaSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    sign: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
