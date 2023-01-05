@@ -3,9 +3,20 @@ const { toJSON, paginate } = require('./plugins');
 
 const FormulaSchema = mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    description: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     key: {
       type: String,
       required: true,
+      unique: true,
     },
     value: {
       type: Number,

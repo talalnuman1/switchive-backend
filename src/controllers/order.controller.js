@@ -5,11 +5,10 @@ const catchAsync = require('../utils/catchAsync');
 const { orderService, userService, formulaService } = require('../services');
 
 const createOrder = catchAsync(async (req, res) => {
-  const loyaltyPoints = await formulaService.getFormulaByKey('loyaltyPoints');
-  const shpToUsd = await formulaService.getFormulaByKey('shp');
-  const referralPoints = await formulaService.getFormulaByKey('referralPoints');
-  const referralLimit = await formulaService.getFormulaByKey('referralLimit');
-
+  const loyaltyPoints = await formulaService.getFormulaByKey('loyalty_points_percentage');
+  const shpToUsd = await formulaService.getFormulaByKey('usd_to_shp');
+  const referralPoints = await formulaService.getFormulaByKey('referral_points_percentage');
+  const referralLimit = await formulaService.getFormulaByKey('referral_shp_limit');
   const order = await orderService.createOrder(req.body);
   const amount = parseFloat(req.body.amount);
   const cashBack = (loyaltyPoints.value / 100) * amount;

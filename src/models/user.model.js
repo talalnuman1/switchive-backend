@@ -41,8 +41,9 @@ const userSchema = mongoose.Schema(
       trim: true,
     },
     balance: {
-      type: Number,
+      type: Array,
       trim: true,
+      default: [{ USD: 0 }, { EUR: 0 }, { GBP: 0 }],
     },
     referredBy: {
       type: mongoose.SchemaTypes.ObjectId,

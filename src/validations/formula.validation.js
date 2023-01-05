@@ -3,6 +3,8 @@ const { objectId } = require('./custom.validation');
 
 const createFormula = {
   body: Joi.object().keys({
+    name: Joi.string().required(),
+    description: Joi.string(),
     key: Joi.string().required(),
     sign: Joi.string().required(),
     value: Joi.number().required(),
