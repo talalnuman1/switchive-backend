@@ -37,6 +37,11 @@ const orderSchema = mongoose.Schema(
       trim: true,
       required: true,
     },
+    paidCoin: {
+      type: String,
+      trim: true,
+      required: true,
+    },
   },
   {
     timestamps: true,

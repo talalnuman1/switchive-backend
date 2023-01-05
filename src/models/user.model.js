@@ -42,7 +42,7 @@ const userSchema = mongoose.Schema(
     },
     balance: {
       type: Number,
-      default: 0,
+      trim: true,
     },
     referredBy: {
       type: mongoose.SchemaTypes.ObjectId,

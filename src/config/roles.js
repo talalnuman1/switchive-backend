@@ -1,5 +1,6 @@
 const allRoles = {
-  user: ['cart', 'order', 'coinremitter', 'getswitchiveGiftCard', 'wishList', 'getBlog'],
+  user: ['cart', 'order', 'coinremitter', 'getswitchiveGiftCard', 'wishList'],
+  blogWriter: ['Blog'],
   admin: [
     'getUsers',
     'manageUsers',
@@ -9,7 +10,6 @@ const allRoles = {
     'formula',
     'getswitchiveGiftCard',
     'Blog',
-    'getBlog',
     'wishList',
   ],
 };
