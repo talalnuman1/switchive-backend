@@ -4,7 +4,7 @@ const { objectId } = require('./custom.validation');
 const createSwitchiveGiftCard = {
   body: Joi.object().keys({
     name: Joi.string().required(),
-    currency: Joi.string().valid('USD', 'EURO', 'GBP').required(),
+    currency: Joi.string().valid('USD', 'EUR', 'GBP').required(),
     maxAmount: Joi.number().required(),
     minAmount: Joi.number().required(),
     avatar: Joi.string().required(),

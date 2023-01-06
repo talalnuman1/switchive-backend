@@ -35,7 +35,7 @@ const updateUser = {
       email: Joi.string().email(),
       password: Joi.string().custom(password),
       name: Joi.string(),
-      balance: Joi.object(),
+      balance: Joi.array(),
     })
     .min(1),
 };
