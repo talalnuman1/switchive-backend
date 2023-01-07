@@ -8,3 +8,5 @@ module.exports.switchiveGiftCardService = require('./switchiveGiftCard.services'
 module.exports.formulaService = require('./formula.service');
 module.exports.wishListService = require('./wishList.services');
 module.exports.blogService = require('./blog.service');
+module.exports.walletService = require('./wallet.service');
+module.exports.redeemService = require('./redeem.service');
