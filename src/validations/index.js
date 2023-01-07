@@ -6,3 +6,5 @@ module.exports.switchiveGiftCardValidation = require('./switchiveGiftCArd.valida
 module.exports.coinremitterValidation = require('./coinremitter.validation');
 module.exports.ishListValidation = require('./wishList.validation');
 module.exports.blogValidation = require('./blog.validation');
+module.exports.walletValidation = require('./wallet.validation');
+module.exports.redeemValidation = require('./redeeem.validation');
