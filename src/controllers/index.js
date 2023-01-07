@@ -6,3 +6,5 @@ module.exports.switchiveGiftCardController = require('./switchiveGiftCard.contro
 module.exports.coinremitterController = require('./coinremitter.controller');
 module.exports.wishListController = require('./wishList.controller');
 module.exports.blogController = require('./blog.controller');
+module.exports.walletController = require('./wallet.comtroller');
+module.exports.redeemController = require('./redeem.controller');

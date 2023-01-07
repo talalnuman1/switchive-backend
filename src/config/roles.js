@@ -11,6 +11,8 @@ const allRoles = {
     'getswitchiveGiftCard',
     'Blog',
     'wishList',
+    'Wallet',
+    'Redeem',
   ],
 };
 

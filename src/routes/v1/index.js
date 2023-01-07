@@ -10,6 +10,8 @@ const blog = require('./blog.route');
 const wishList = require('./wishLIst.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
+const wallet = require('./wallet.route');
+const redeem = require('./redeem.route');
 
 const router = express.Router();
 
@@ -49,6 +51,14 @@ const defaultRoutes = [
   {
     path: '/blog',
     route: blog,
+  },
+  {
+    path: '/wallet',
+    route: wallet,
+  },
+  {
+    path: '/redeem',
+    route: redeem,
   },
 ];
 
