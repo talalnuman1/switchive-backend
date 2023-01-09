@@ -16,6 +16,11 @@ const getRedeems = catchAsync(async (req, res) => {
   res.send(result);
 });
 
+const getRedeemByCard = catchAsync(async (req, res) => {
+  const result = await redeemService.getRedeem(req);
+  res.send(result);
+});
+
 const getRedeem = catchAsync(async (req, res) => {
   const Redeem = await redeemService.getRedeemById(req.params.redeemId);
   if (!Redeem) {
@@ -40,4 +45,5 @@ module.exports = {
   getRedeem,
   updateRedeem,
   deleteRedeem,
+  getRedeemByCard,
 };

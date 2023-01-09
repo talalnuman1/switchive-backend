@@ -5,7 +5,7 @@ const createRedeem = {
   body: Joi.object().keys({
     createdBy: Joi.string().required(),
     productId: Joi.string().required(),
-    isRedeemed: Joi.boolean().required(),
+    isRedeemed: Joi.boolean(),
     transactionId: Joi.string().required(),
     currency: Joi.string().valid('USD', 'GBP', 'EUR').required(),
     purchaseAmount: Joi.number().required(),
@@ -31,8 +31,7 @@ const updateRedeem = {
     redeemId: Joi.required().custom(objectId),
   }),
   body: Joi.object().keys({
-    currency: Joi.string().valid('USD', 'GBP', 'EUR'),
-    paidCoin: Joi.string(),
+    isRedeemed: Joi.boolean(),
   }),
 };
 const deleteRedeem = {

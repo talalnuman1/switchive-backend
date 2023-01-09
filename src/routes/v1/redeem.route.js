@@ -11,6 +11,8 @@ router
   .post(auth('Redeem'), validate(redeemValidation.createRedeem), redeemController.createRedeem)
   .get(auth('Redeem'), validate(redeemValidation.getRedeems), redeemController.getRedeems);
 
+router.route('/ByCard').get(auth('Redeem'), validate(redeemValidation.getRedeem), redeemController.getRedeemByCard);
+
 router
   .route('/:redeemId')
   .get(auth('Redeem'), validate(redeemValidation.getRedeem), redeemController.getRedeem)

@@ -15,7 +15,7 @@ const redeemSchema = mongoose.Schema(
     },
     isRedeemed: {
       type: Boolean,
-      required: true,
+      default: false,
     },
     transactionId: {
       type: String,

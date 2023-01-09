@@ -25,6 +25,27 @@ const queryRedeems = async (filter, options) => {
   return Redeems;
 };
 
+const getRedeem = async (req) => {
+  const { page = 1, limit = 10 } = req.query;
+  const p = Number(page);
+  const l = Number(limit);
+  const total = await Redeem.find().count();
+  const results = await Redeem.aggregate([
+    {
+      $lookup: {
+        from: 'switchivegiftcards',
+        localField: 'productId',
+        foreignField: '_id',
+        as: 'card',
+      },
+    },
+  ])
+    .skip((p - 1) * l)
+    .limit(l);
+  const data = { totalResults: total, limit: l, page: p, results };
+  return data;
+};
+
 /**
  * Get Redeem by id
  * @param {ObjectId} id
@@ -45,7 +66,7 @@ const updateRedeemById = async (redeemId, updateBody) => {
   if (!RedeemToUPdate) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Redeem not found');
   }
-  Object.assign(Redeem, updateBody);
+  Object.assign(RedeemToUPdate, updateBody);
   await RedeemToUPdate.save();
   return RedeemToUPdate;
 };
@@ -70,4 +91,5 @@ module.exports = {
   getRedeemById,
   updateRedeemById,
   deleteRedeemById,
+  getRedeem,
 };
