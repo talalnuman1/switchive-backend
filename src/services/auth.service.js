@@ -13,9 +13,17 @@ const { tokenTypes } = require('../config/tokens');
  */
 const loginUserWithEmailAndPassword = async (email, password) => {
   const user = await userService.getUserByEmail(email);
-  if (!user || !(await user.isPasswordMatch(password))) {
-    throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect email or password');
+  const userpass = user && (await user.isPasswordMatch(password));
+  if (!user && !userpass) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect email and password');
   }
+  if (!user) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect email');
+  }
+  if (!userpass) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect password');
+  }
+
   return user;
 };
 
