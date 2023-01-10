@@ -25,6 +25,29 @@ const queryOrder = async (filter, options) => {
   return order;
 };
 
+const getOrders = async (req) => {
+  const { page = 1, limit = 10 } = req.query;
+  const p = Number(page);
+  const l = Number(limit);
+
+  const total = await Order.find().count();
+
+  const results = await Order.aggregate([
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'createdBy',
+        foreignField: '_id',
+        as: 'user',
+      },
+    },
+  ])
+    .skip((p - 1) * l)
+    .limit(l);
+  const data = { totalResults: total, limit: l, page: p, results };
+  return data;
+};
+
 /**
  * Get order by id
  * @param {ObjectId} id
@@ -70,4 +93,5 @@ module.exports = {
   getOrderById,
   updateOrderById,
   deleteOrderById,
+  getOrders,
 };
