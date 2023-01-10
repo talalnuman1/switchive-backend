@@ -11,6 +11,8 @@ router
   .post(auth('order'), validate(orderValidation.createOrder), orderController.createOrder)
   .get(auth('order'), validate(orderValidation.getOrders), orderController.getOrders);
 
+router.route('/ByUser').get(auth('order'), validate(orderValidation.getOrders), orderController.getOrderByUser);
+
 router
   .route('/:orderId')
   .get(auth('order'), validate(orderValidation.getOrder), orderController.getOrder)
