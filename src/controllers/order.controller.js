@@ -39,6 +39,11 @@ const getOrders = catchAsync(async (req, res) => {
   res.send(result);
 });
 
+const getOrderByUser = catchAsync(async (req, res) => {
+  const result = await orderService.getOrders(req);
+  res.send(result);
+});
+
 const getOrder = catchAsync(async (req, res) => {
   const Order = await orderService.getOrderById(req.params.orderId);
   if (!Order) {
@@ -63,4 +68,5 @@ module.exports = {
   getOrder,
   updateOrder,
   deleteOrder,
+  getOrderByUser,
 };
