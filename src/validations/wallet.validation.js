@@ -5,8 +5,8 @@ const createWallet = {
   body: Joi.object().keys({
     createdBy: Joi.string().required(),
     productId: Joi.string().required(),
+    productPrice: Joi.number().required(),
     giftCardEmail: Joi.string().required(),
-    howToRedeem: Joi.string().required(),
   }),
 };
 
