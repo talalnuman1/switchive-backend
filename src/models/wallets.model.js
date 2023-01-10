@@ -13,11 +13,11 @@ const walletSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
-    giftCardEmail: {
-      type: String,
+    productPrice: {
+      type: Number,
       required: true,
     },
-    howToRedeem: {
+    giftCardEmail: {
       type: String,
       required: true,
     },
